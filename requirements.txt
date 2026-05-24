@@ -1,0 +1,8 @@
+flask>=3.0
+sounddevice>=0.4.6
+numpy>=1.24
+scipy>=1.10
+silero-vad>=5.1
+faster-whisper>=1.0.3
+resemblyzer>=0.1.4
+sentence-transformers>=2.7

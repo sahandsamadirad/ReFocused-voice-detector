@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReFocused — voice signal</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>ReFocused</h1>
+      <p class="hint">mic-based attention signal · local pipeline</p>
+    </header>
+
+    <div id="verdict" class="verdict pending">
+      <span class="dot"></span>
+      <span class="label">connecting…</span>
+    </div>
+
+    <div id="utt-bar-wrap" class="bar-wrap" hidden>
+      <div id="utt-bar" class="bar"></div>
+    </div>
+
+    <dl class="metrics" id="metrics" hidden>
+      <dt>enrolled</dt><dd id="m-enrolled">—</dd>
+      <dt>tasks</dt><dd id="m-tasks">—</dd>
+      <dt>min utt</dt><dd id="m-min">—</dd>
+      <dt>relevance τ</dt><dd id="m-tau">—</dd>
+    </dl>
+
+    <section class="block">
+      <div class="section-head">
+        <h2>Recent utterances <span id="hist-count" class="small muted"></span></h2>
+        <button id="hist-clear" class="btn ghost small-btn">Clear</button>
+      </div>
+      <div id="hist-empty" class="muted small">No completed utterance yet.</div>
+      <ol id="hist-list" class="history" hidden></ol>
+    </section>
+
+    <section class="block">
+      <h2>Voice enrollment</h2>
+      <p class="small muted" id="enroll-hint">
+        Record ~6&nbsp;seconds of your voice so we can tell it apart from
+        coworkers and background voices.
+      </p>
+      <button id="enroll-btn" class="btn">Enroll my voice</button>
+      <button id="enroll-reset" class="btn ghost" hidden>Re-enroll</button>
+    </section>
+
+    <section class="block">
+      <h2>Task context</h2>
+      <p class="small muted">
+        One task per line. We compare your transcribed speech against these
+        to decide if you're on-task.
+      </p>
+      <textarea id="tasks" rows="5" placeholder="Build the login form
+Wire up the submit handler
+Add password validation"></textarea>
+      <div class="row">
+        <button id="tasks-save" class="btn">Update tasks</button>
+        <span id="tasks-status" class="small muted"></span>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

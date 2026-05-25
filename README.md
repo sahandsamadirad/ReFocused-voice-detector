@@ -1,4 +1,19 @@
-# ReFocused — Voice Signal
+# refocused-voice — Voice Signal Module
+
+> **Status: merged.** This directory is the original standalone prototype
+> of the **voice** signal. It has been folded into the unified ReFocused
+> build at `../ReFocused/services/voice/` as a verbatim copy (same
+> Silero VAD + Resemblyzer + faster-whisper base.en (int8) +
+> all-MiniLM-L6-v2 stack, same hysteresis thresholds, same
+> `IDLE → SPEAKING → tail-silence → close` state machine, same
+> `ON_TASK / OFF_TASK / NOT_USER / TOO_SHORT / NO_CONTEXT` verdicts,
+> same internal mic-vs-worker `queue.Queue` split that keeps mic capture
+> from blocking on ASR). See `../ReFocused/structure.md §3.3` and
+> `../ReFocused/planning.md §3` for the merge procedure.
+>
+> The merged build runs this code on port **8002** (was 5050). The
+> ~250 MB of model weights cache to a shared Docker volume so the slow
+> first download is paid once. Algorithms here are the source of truth.
 
 Mic-based attention signal for ReFocused. Mirrors the gaze module's split:
 
